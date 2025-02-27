@@ -61,7 +61,7 @@ button {
     height: 36px;
     background: #F8F9FB3D;
     align-items: center;
-    justify-items: center;
+    justify-content: center;
 }
 .agree{
     font-size: 12px;
