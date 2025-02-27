@@ -27,18 +27,18 @@ export const Form = () => {
     const sendFormBackend = (e) => {
         e.preventDefault();
         try {
+            setErrors({});
             sendForm({name, phoneNumber, email, userMessage});
             setPhoneNumber('');
             setName('');
             setEmail('');
-            setErrors({});
         } catch (e) {
             setErrors(JSON.parse(e.message));
         }
 
     }
     return (
-        <div className="flex flex-col h-screen py-[68px] px-[103px] bg-white">
+        <div className="flex flex-col max-w-[400px] py-[68px] mx-[103px] bg-white">
             <div className="flex flex-col max-w-[325px] text-left gap-2">
                 <h1 className="rewrite-h1">Получить консультацию</h1>
                 <p>Заполните форму и мы свяжемся с вами в ближайшее время</p>
@@ -63,12 +63,15 @@ export const Form = () => {
                 }} value={userMessage} label="Текст сообщения" errorMsg={errors?.userMessage}
                              onChangeCallback={handleChangeUserMessage} customHeight={140} isTextArea/>
                 <button
-                    className="w-[163px] h-[50px] bg-[#016FDD] text-[white] font-[bold] text-[18px] rounded-[6px] hover:bg-[#005B9F]"
+                    className="bg-[#016FDD] self-start mt-[20px] font-semibold text-[18px] px-6 py-[13px] rounded-3xl hover:bg-[#005B9F]"
                     onClick={sendFormBackend}
                 >
                     Отправить
                 </button>
             </form>
+            <span className="agree">Нажимая «Продолжить», вы <a
+                href=""><u>принимаете пользовательское соглашение </u></a> и <a
+                href="https://globexit.ru/soglasie-na-obrabotku-personalnyh-dannyh/"><u>политику конфиденциальности</u></a></span>
 
 
         </div>

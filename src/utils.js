@@ -54,7 +54,7 @@ export const sendForm = ({ name, phoneNumber, email,userMessage }) => {
     const errorsMessage = {};
 
     // Валидация очищенных данных
-    if (phoneNumberCleared.length !== 11) {
+    if (phoneNumberCleared.length !== 11 && phoneNumberCleared.length !== 0) {
         errorsMessage.phoneNumber = 'Укажите правильный номер';
     }
 
